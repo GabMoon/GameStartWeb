@@ -5,6 +5,7 @@ window.onload = () => {
     
     let promise = fetch('http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games')
            .then(response => response.json())
+           .then(buildGamesBox())
             .then(json => {
                 allGames = json;
                 buildGames();
@@ -12,46 +13,41 @@ window.onload = () => {
             .catch(err => console.log(err));
 }
 
-function buildGames(){
-    console.log("In build Games");
-    console.log(allGames.length);
+function buildGamesBox(){
+    console.log("In build Games Box ");
     let allGamesList = document.createElement('ol');
-    allGamesList.setAttribute("class", "gs-searchResult")
-    
-   //Append Details for loop
+    allGamesList.setAttribute("class", "gs-searchResult");
+    allGamesList.setAttribute("id", "games-list")
+    let resultsDiv = document.getElementById("div-search-box");
+    resultsDiv.appendChild(allGamesList); 
+}
+
+function buildGames(){   
+    console.log("In build Games");
+    let allGamesList = document.getElementById("games-list");
+
+   //Append Name for loop
    let NameItem, NameText
    for (const cur in allGames){
         //Individual Game
-        let GameDetailsList = document.createElement('ul');
         console.log("In Game for loop");
         NameItem = document.createElement('li');
         NameText = document.createTextNode(allGames[cur].name);
         NameItem.appendChild(NameText);
-        GameDetailsList.appendChild(NameItem);
-
-        // let AnswersList = document.createElement('ul');
-        // AnswersList.setAttribute("name", quizQuestions[cur].questionId);
-    
-        // //Append Answer for loop
-        // let AnswerItem, AnswerText, radial;
-        // for (const i in quizQuestions[0].questionAnswers){
-        //     AnswerItem = document.createElement('li');
-        //     radial = document.createElement('input');
-        //     radial.setAttribute("type", "radio");
-        //     radial.setAttribute("name", quizQuestions[cur].questionText);
-
-        //     radial.setAttribute("value", i);
-        //     //radial.setAttribute("value",quizQuestions[cur].answers[i]);
-        //     AnswerItem.appendChild(radial);
-        //     AnswerText = document.createTextNode(quizQuestions[cur].questionAnswers[i]);
-        //     AnswerItem.appendChild(AnswerText);
-        //     AnswersList.appendChild(AnswerItem);
-        // }
-
-    // QuestionList.appendChild(AnswersList);
-    allGamesList.appendChild(GameDetailsList);
+        NameItem.setAttribute("class", "gs-searchResultItem");
+        NameItem.setAttribute("id", allGames[cur].id);
+        NameItem.onclick = redirect;
+    // append to allGamesList;
+    allGamesList.appendChild(NameItem);
    }
 
-   let resultsDiv = document.getElementById("div-search-box");
-   resultsDiv.appendChild(allGamesList);
+}
+
+function redirect(){
+    console.log("in redirect");
+    console.log(this.id);
+    alert('redirect called on ' + this.innerHTML + " " + this.id);
+    let gameId = this.id;
+    let gamePage = "game.html?" + gameId;
+    window.location.href = gamePage;
 }
