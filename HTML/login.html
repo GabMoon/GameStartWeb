@@ -12,7 +12,7 @@
     
 </head>
 <body>
-    <form name= "loginForm" id = "login-form">
+    <div name= "loginForm" id = "login-form">
         <div class = "formItems">
             <label class = "formItem" for = "InputUsername">Username</label>
             <input class = "formItem" id = "Username" type = "text" name = "InputUsername"   placeholder="Enter Username" maxlength="25">
@@ -22,9 +22,9 @@
             <input class = "formItem"  id = "Password" name = "InputPassword" type = "password"  placeholder="Password" maxlength="25">
             <a><input type = "checkbox" onclick="showPassword()" autocomplete="off" >Show Password</a>
         </div>
-        <span id = "failedLogin" style="display: none;">Incorrect username or password</span>
-        <button id = "formButton">Submit</button>
-    </form>   
+        <span id = "failedLogin" style="display: none; color: red">Incorrect username or password</span>
+        <button id = "formButton">Submit</button><button id = "formButtonNewAccount">Don't have an account</button>
+    </div>   
 </body>
 
 </html>
