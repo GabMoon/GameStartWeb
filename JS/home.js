@@ -117,7 +117,7 @@ function redirectGameSearch(){
 }
 
 function redirectUser(){
-    window.location.href = "game.html"; 
+    window.location.href = "user.html"; 
 }
 
 function redirectGame(){

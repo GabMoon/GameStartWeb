@@ -1,6 +1,5 @@
 let Game = [];
 let Ratings = [];
-let numReviews = 0;
 
 window.onload = () => {
     buildNavBar();
@@ -75,7 +74,9 @@ function buildGameBox(){
 
     
 }
-
+function fetchRatings(){
+    
+}
 function buildRatings(){
     // Fetch reviews
     let reviewUrl = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/review/game/${Game.id}`;
@@ -83,44 +84,89 @@ function buildRatings(){
             .then(response=> response.json())
             .then(json => {
                 console.log(reviewUrl);
-                console.log(numReviews);
                 Ratings = json;
-                console.log(Ratings);
                 numReviews = 1;
-                buildRatings();
+            })
+            .then(() => {
+                console.log(Ratings.length);
+                let ratings = document.getElementById("numRating");
+                if (Ratings.length == 0)
+                    ratingsText = document.createTextNode("(0)");
+                else{
+                    ratingsText = document.createTextNode(`(${Ratings.length})`);
+                }
+                ratings.appendChild(ratingsText);
+            })
+            .then( ()=> {
+                // Star Rating
+                let ratingScore = document.getElementById("rating");
+                let text = `${Game.rating}` + "/5";
+                let ratingScoreText = document.createTextNode(text);
+                ratingScore.appendChild(ratingScoreText);
+
+                for (let i = 1; i < 6; i++){
+                    let curElement = "star" + `${i}`;
+                    let star = document.getElementById(curElement);
+                    if (i <= Game.rating){
+                        star.setAttribute("class", "fas fa-star checked fa-2x");
+                    }else if (Game.rating > i){
+                        star.setAttribute("class", "fas fa-star-half-alt fa-2x");
+                    }else{
+                        star.setAttribute("class", "fas fa-star fa-2x");
+                    }
+                } 
+            })
+            .then(()=>{
+                let box = document.getElementById("ReviewBox");
+                for (let i = 0; i < Ratings.length; i++){
+                    //Add reviews
+                    let reviewDiv = document.createElement('div');
+                    reviewDiv.setAttribute("class", "reviews-members pt-4 pb-4 media media-body");
+                    
+                    let reviewHeader = document.createElement('div');
+                    reviewHeader.setAttribute("class", "reviews-members-header");
+
+                    let reviewStars = document.createElement('span');
+                    reviewStars.setAttribute("class", "star-rating float-right");
+                    for (let j = 1; j < 6; j++){
+                        let star = document.createElement('a');
+                        star.setAttribute("href", "#");
+
+                        let starI = document.createElement("i");
+
+                        if (i <= Ratings[i].rating){
+                            starI.setAttribute("class", "fas fa-star checked fa-2x");
+                        }else if (Game.rating > i){
+                            starI.setAttribute("class", "fas fa-star-half-alt fa-2x");
+                        }else{
+                            starI.setAttribute("class", "fas fa-star fa-2x");
+                        }
+
+                        star.appendChild(starI);
+                        reviewStars.appendChild(star);
+                    } 
+
+                    reviewHeader.appendChild(reviewStars);
+                    reviewDiv.appendChild(reviewHeader);
+
+                    let reviewBody = document.createElement('div');
+                    reviewBody.setAttribute("class", "reviews-members-body");
+
+                    let body = document.createElement("p");
+                    body.innerHTML = Ratings[i].description;
+
+                    reviewBody.appendChild(body);
+
+                    reviewDiv.appendChild(reviewBody);
+                    let revBox = document.getElementById("ReviewBox");
+                    revBox.appendChild(reviewDiv);
+                }
+
             })
             .catch(err => {
                 numReviews = 0;
                 console.log(err);
-            });
-
-    //Count reviews
-    let ratings = document.getElementById("numRating");
-    let ratingsText
-    if (numReviews == 0)
-        ratingsText = document.createTextNode("(0)");
-    else{
-        ratingsText = document.createTextNode("(?)");
-    }
-    ratings.appendChild(ratingsText);
-
-    // Star Rating
-    let ratingScore = document.getElementById("rating");
-    let text = `${Game.rating}` + "/5";
-    let ratingScoreText = document.createTextNode(text);
-    ratingScore.appendChild(ratingScoreText);
-
-    for (let i = 1; i < 6; i++){
-        let curElement = "star" + `${i}`;
-        let star = document.getElementById(curElement);
-        if (i <= Game.rating){
-            star.setAttribute("class", "fas fa-star checked fa-2x");
-        }else if (Game.rating > i){
-            star.setAttribute("class", "fas fa-star-half-alt fa-2x");
-        }else{
-            star.setAttribute("class", "fas fa-star fa-2x");
-        }
-    } 
+            });    
 }
 
 function redirectHome(){
@@ -128,7 +174,7 @@ function redirectHome(){
 }
 
 function redirectUser(){
-    window.location.href = "game.html"; 
+    window.location.href = "user.html"; 
 }
 
 function redirectGameSearch(){
