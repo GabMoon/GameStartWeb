@@ -47,7 +47,6 @@ function responseFunction(userData) {
             failedLogin.style.display = "none";
         }
 
-        sessionStorage.clear();
 
         sessionStorage.setItem("id", userData.id);
         sessionStorage.setItem("username", userData.username);
