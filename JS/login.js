@@ -21,7 +21,7 @@ function verifyForm(){
 
 function submitForm(username, password) {
         let userLogin = {username : username.value, password : password.value};
-        let url = 'http://localhost:5000/users/authentication';
+        let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/authentication';
 
         authentication(url, userLogin).then(data=> {
             responseFunction(data);
