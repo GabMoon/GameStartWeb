@@ -154,48 +154,6 @@ function buildRatings(){
                     let currentScore = Ratings[i].score;
                     appendStars(reviewStars, currentScore, starList);
 
-                    // if(Ratings[i].score == 1){
-                    //     star1.setAttribute("class", "fa fa-star checked");
-                    //     reviewStars.appendChild(star1);
-                    // }
-                    // if(Ratings[i].score == 2){
-                    //     star1.setAttribute("class", "fa fa-star checked");
-                    //     star2.setAttribute("class", "fa fa-star checked");
-                    //     reviewStars.appendChild(star1);
-                    //     reviewStars.appendChild(star2);
-                    // }
-                    // if(Ratings[i].score == 3){
-                    //     star1.setAttribute("class", "fa fa-star checked");
-                    //     star2.setAttribute("class", "fa fa-star checked");
-                    //     star3.setAttribute("class", "fa fa-star checked");
-                    //     reviewStars.appendChild(star1);
-                    //     reviewStars.appendChild(star2);
-                    //     reviewStars.appendChild(star3);
-                    // }
-                    // if(Ratings[i].score == 4){
-                    //     star1.setAttribute("class", "fa fa-star checked");
-                    //     star2.setAttribute("class", "fa fa-star checked");
-                    //     star3.setAttribute("class", "fa fa-star checked");
-                    //     star4.setAttribute("class", "fa fa-star checked");
-                    //     reviewStars.appendChild(star1);
-                    //     reviewStars.appendChild(star2);
-                    //     reviewStars.appendChild(star3);
-                    //     reviewStars.appendChild(star4);
-                    // }
-                    // if(Ratings[i].score == 5){
-                    //     star1.setAttribute("class", "fa fa-star checked");
-                    //     star2.setAttribute("class", "fa fa-star checked");
-                    //     star3.setAttribute("class", "fa fa-star checked");
-                    //     star4.setAttribute("class", "fa fa-star checked");
-                    //     star5.setAttribute("class", "fa fa-star checked");
-                    //     reviewStars.appendChild(star1);
-                    //     reviewStars.appendChild(star2);
-                    //     reviewStars.appendChild(star3);
-                    //     reviewStars.appendChild(star4);
-                    //     reviewStars.appendChild(star5);
-                    // }
-                    // reviewStars.appendChild(star);
-
                     reviewHeader.appendChild(reviewStars);
                     
                     let breakline = document.createElement('br');
@@ -247,7 +205,6 @@ function redirectGameSearch(){
     window.location.href = gamePage;
 }
 
-<<<<<<< HEAD
 function countStars(count){
     userReviewCount =count;
 }
@@ -281,7 +238,6 @@ function appendStars(reviewStars, currentScore, starList){
     }
     return reviewStars;
 }
-=======
 function goToLoginPage() {
     window.location.href = "login.html";
 }
@@ -326,4 +282,3 @@ async function logOutAsync(url) {
         
     }
 }
->>>>>>> a3d7819a114c37fabe0f600872a539b45824cf12
