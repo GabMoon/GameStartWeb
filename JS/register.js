@@ -149,7 +149,7 @@ function verifyForm(){
 
 function submitForm(firstname, lastname, username, password, email) {
         let userRegister = {firstName: firstname.value, lastName: lastname.value, username : username.value, password : password.value, email: email.value, role: 'Basic'};
-        let url = 'http://localhost:5000/users/register';
+        let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/register';
 
         register(url, userRegister).then(data=> {
             responseFunction(data, username, password);
@@ -166,7 +166,7 @@ function responseFunction(responseData, username, password) {
         let failedLogin = document.getElementById("failedLogin");
         failedLogin.style.display = "none";
         let userLogin = {username : username.value, password : password.value};
-        let url = 'http://localhost:5000/users/authentication';
+        let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/authentication';
         authentication(url, userLogin).then(userData=> {
             if (userData == undefined || userData == null) {
 

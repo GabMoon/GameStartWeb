@@ -45,7 +45,7 @@ function goToLoginPage() {
 }
 
 function logout() {
-    let url = 'http://localhost:5000/users/logout'
+    let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/logout'
 
     logOutAsync(url).then(data=> {
         responseFunction(data);
