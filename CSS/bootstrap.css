@@ -5722,6 +5722,7 @@ textarea.form-control-lg {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
+  overflow-y: hidden!important;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
@@ -5888,6 +5889,9 @@ textarea.form-control-lg {
   padding-bottom: 1.25rem;
   color: #fff;
   text-align: center;
+
+  -webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
 }
 
 .carousel-dark .carousel-control-prev-icon,
@@ -10729,4 +10733,160 @@ textarea.form-control-lg {
   }
 }
 
+
+/* GameStart specific */
+
+.gs-heightConst-1{
+  height: 250px;
+}
+
+.gs-imgResponsive{
+  display:block;
+  height:600px;
+  max-width:100%
+}
+
+.checked {
+  color: orange;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
+
+  .total-like-user-main a {
+      display: inline-block;
+      margin: 0 -17px 0 0;
+  }
+  .total-like {
+      border: 1px solid;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: 500;
+      height: 34px;
+      line-height: 33px;
+      padding: 0 13px;
+      vertical-align: top;
+  }
+  .restaurant-detailed-ratings-and-reviews hr {
+      margin: 0 -24px;
+  }
+  .graph-star-rating-header .star-rating {
+      font-size: 17px;
+  }
+  .progress {
+      background: #f2f4f8 none repeat scroll 0 0;
+      border-radius: 0;
+      height: 30px;
+  }
+  .rating-list {
+      display: inline-flex;
+      margin-bottom: 15px;
+      width: 100%;
+  }
+  .rating-list-left {
+      height: 16px;
+      line-height: 29px;
+      width: 10%;
+  }
+  .rating-list-center {
+      width: 80%;
+  }
+  .rating-list-right {
+      line-height: 29px;
+      text-align: right;
+      width: 10%;
+  }
+
+
+  .text-black {
+      color: #000000;
+  }
+  .icon-overlap {
+      bottom: -23px;
+      font-size: 74px;
+      opacity: 0.23;
+      position: absolute;
+      right: -32px;
+  }
+ 
+  .restaurant-detailed-header-left img {
+      width: 88px;
+      height: 88px;
+      border-radius: 3px;
+      object-fit: cover;
+      box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+  }
+  .reviews-members .media .mr-3 {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+  }
+  .rounded-pill {
+      border-radius: 50rem!important;
+  }
+  .total-like-user {
+      border: 2px solid #fff;
+      height: 34px;
+      box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+      width: 34px;
+  }
+  .total-like-user-main a {
+      display: inline-block;
+      margin: 0 -17px 0 0;
+  }
+  .total-like {
+      border: 1px solid;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: 500;
+      height: 34px;
+      line-height: 33px;
+      padding: 0 13px;
+      vertical-align: top;
+  }
+  .restaurant-detailed-ratings-and-reviews hr {
+      margin: 0 -24px;
+  }
+  .graph-star-rating-header .star-rating {
+      font-size: 17px;
+  }
+  .progress {
+      background: #f2f4f8 none repeat scroll 0 0;
+      border-radius: 0;
+      height: 30px;
+  }
+  .rating-list {
+      display: inline-flex;
+      margin-bottom: 15px;
+      width: 100%;
+  }
+  .rating-list-left {
+      height: 16px;
+      line-height: 29px;
+      width: 10%;
+  }
+  .rating-list-center {
+      width: 80%;
+  }
+  .rating-list-right {
+      line-height: 29px;
+      text-align: right;
+      width: 10%;
+  }
+  .restaurant-slider-pics {
+      bottom: 0;
+      font-size: 12px;
+      left: 0;
+      z-index: 999;
+      padding: 0 10px;
+  }
+  .restaurant-slider-view-all {
+      bottom: 15px;
+      right: 15px;
+      z-index: 999;
+  }
+  
+  .progress {
+      background: #f2f4f8 none repeat scroll 0 0;
+      border-radius: 0;
+      height: 30px;
+  }

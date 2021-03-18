@@ -1,53 +1,138 @@
 let Game = [];
+let Ratings = [];
+let numReviews = 0;
 
 window.onload = () => {
-    console.log(location.search.substring(1));
-    let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/id/' + location.search.substring(1);
+    buildNavBar();
+    let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/name/' + location.search.substring(1);
 
-    let promise = fetch(url)
-           .then(response => response.json())
-            .then(json => {
-                Game = json;
-                buildGameBox();
-            })
-            .catch(err => console.log(err));
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            Game = json;
+            buildGameBox();
+            buildRatings();
+        })
+        .catch(err => console.log(err));    
+}
+
+function buildNavBar(){
+    document.getElementById("logoImage").onclick = redirectHome;  
+    
+    document.getElementById("searchButton").onclick = redirectGameSearch;
+
+    document.getElementById("userProfile").onclick = redirectUser;
 }
 
 function buildGameBox(){
-    //Header
-    let gameTitle = document.getElementById("gameName");
+    let image = document.getElementById("image");
+    let imageAddress = Game.background_image;
+    image.setAttribute("src", imageAddress);
+
+    let gameTitle = document.getElementById("title");
     let titleText = document.createTextNode(Game.name);
     gameTitle.appendChild(titleText);
 
-    let rating = document.getElementById("gameRating");
-    let text = "Rating:  " + Game.rating;
-    console.log(text);
-    let ratingText = document.createTextNode(text);
-    rating.appendChild(ratingText);
+    let description = document.getElementById("description");
+    description.innerHTML = Game.description;
     
-    let genre = document.getElementById("gameGenre");
-    text = "Genre:  " + Game.genre;
-    let genreText = document.createTextNode(Game.genre[0]);
-    if (Game.genre[0] != null)
-        genre.appendChild(genreText);
+    // Genre list ol
+    let listOfGenres = document.getElementById("genres");
+    for (let g of Game.genre){
+        let text = document.createTextNode(g.name);
+        let ListItem = document.createElement('li');
+        ListItem.appendChild(text);
 
-    let description = document.getElementById("gameDescParagraph");
-    let descText = document.createTextNode(Game.description);
-    if (Game.description != null)
-        description.appendChild(descText);
+        listOfGenres.appendChild(ListItem);
+    }
 
-    let developers = document.getElementById("gameDevelopers");
-    let devsText = document.createTextNode(Game.developers[0]);
-    if (devsText != null)
-        developers.appendChild(devsText);
+    let listOfPlatforms = document.getElementById("platforms");
+    for (let plat of Game.platforms){
+        let text = document.createTextNode(plat.name);
+        let ListItem = document.createElement('li');
+        ListItem.appendChild(text);
+
+        listOfPlatforms.appendChild(ListItem);
+    }
+
+    let listOfDevelopers = document.getElementById("developers");
+    for (let d of Game.developers){
+        let text = document.createTextNode(d.name);
+        let ListItem = document.createElement('li');
+        ListItem.appendChild(text);
+
+        listOfDevelopers.appendChild(ListItem);
+    }
+
+    let listOfPublishers = document.getElementById("publishers");
+    for (let pub of Game.publishers){
+        let text = document.createTextNode(pub.name);
+        let ListItem = document.createElement('li');
+        ListItem.appendChild(text);
+
+        listOfPublishers.appendChild(ListItem);
+    }
+
     
-    let publishers = document.getElementById("gamePublishers");
-    let pubsText = document.createTextNode(Game.publishers[0]);
-    if (pubsText != null)
-        publishers.appendChild(pubsText);
+}
 
-    let platforms = document.getElementById("gamePlatforms");
-    let platsText = document.createTextNode(Game.platforms[0]);
-    if (platsText != null)
-        platforms.appendChild(platsText);
+function buildRatings(){
+    // Fetch reviews
+    let reviewUrl = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/review/game/${Game.id}`;
+    fetch(reviewUrl)
+            .then(response=> response.json())
+            .then(json => {
+                console.log(reviewUrl);
+                console.log(numReviews);
+                Ratings = json;
+                console.log(Ratings);
+                numReviews = 1;
+                buildRatings();
+            })
+            .catch(err => {
+                numReviews = 0;
+                console.log(err);
+            });
+
+    //Count reviews
+    let ratings = document.getElementById("numRating");
+    let ratingsText
+    if (numReviews == 0)
+        ratingsText = document.createTextNode("(0)");
+    else{
+        ratingsText = document.createTextNode("(?)");
+    }
+    ratings.appendChild(ratingsText);
+
+    // Star Rating
+    let ratingScore = document.getElementById("rating");
+    let text = `${Game.rating}` + "/5";
+    let ratingScoreText = document.createTextNode(text);
+    ratingScore.appendChild(ratingScoreText);
+
+    for (let i = 1; i < 6; i++){
+        let curElement = "star" + `${i}`;
+        let star = document.getElementById(curElement);
+        if (i <= Game.rating){
+            star.setAttribute("class", "fas fa-star checked fa-2x");
+        }else if (Game.rating > i){
+            star.setAttribute("class", "fas fa-star-half-alt fa-2x");
+        }else{
+            star.setAttribute("class", "fas fa-star fa-2x");
+        }
+    } 
+}
+
+function redirectHome(){
+    window.location.href = "home.html"; 
+}
+
+function redirectUser(){
+    window.location.href = "game.html"; 
+}
+
+function redirectGameSearch(){
+    let searchGame = document.getElementById("searchBox").value;
+    let gamePage = "game.html?" + searchGame;
+    window.location.href = gamePage;
 }

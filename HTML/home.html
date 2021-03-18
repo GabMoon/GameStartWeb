@@ -40,11 +40,11 @@
 
   <body>
     <script src = '../JS/home.js'></script>
-    
+   
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <!-- GameStart logo -->
-    <a class="navbar-brand" href="#"><img class="w3-image w3-right" src="../images/mediumCroppedGameStart.jpg" width="214" height="48"></a>
+    <a class="navbar-brand" href="#"><img id="logoImage" class="w3-image w3-right" src="../images/mediumCroppedGameStart.jpg" width="214" height="48"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -61,11 +61,16 @@
 
       <!-- Search and login -->
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input id="searchBox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <a class="link-secondary" href="#" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#05F228" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+          <svg id="searchButton" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#05F228" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24">
+            <title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5"/>
+            <path d="M21 21l-5.2-5.2"/>
+          </svg>
         </a>
         <button class="btn btn-outline-success" type="submit">Login</button>
+        <a href="#" id="userProfile"><i class="fas fa-user fa-2x mx-3" style="color: #05F228"></i></a>
       </form>
 
     </div>
@@ -79,33 +84,119 @@
   <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark bg-heroImage">
     <h1 class="display-7 ">"An encyclopedia of games rated and sorted by your preference..."</h1>
     <br/>
-     
-    <div class="col-md-6 px-0">
-      <!-- <h1 class="display-7 ">An encyclopedia of games rated and sorted by your preference.</h1>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p> -->
-    </div>
   </div>
 
-  <!-- Game Samples -->
+  <!-- Top 10 Carosel -->
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">Top Games</h3>
+      <!-- First item -->
+      <div class="carousel-item active" style="height: 35rem;">
+        <img class="d-block w-100" id="image1" alt="First slide">
+        
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1 id="title1"></h1>
+            <br/>
+            <p><a class="btn btn-lg btn-primary" href="#" id="button1">View Game</a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Second Item -->
+      <div class="carousel-item" style="height: 35rem;">
+        <img class="d-block w-100" id="image2" alt="First slide">
+        
+        <div class="container">
+          <div class="carousel-caption">
+            <h1 id="title2"></h1>
+            <br/>
+             <p><a class="btn btn-lg btn-primary" href="#" id="button2">View Game</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Item -->
+      <div class="carousel-item" style="height: 35rem;">
+        <img class="d-block w-100" id="image3" alt="First slide">
+        
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1 id="title3"></h1>
+            <br/>
+            <p><a class="btn btn-lg btn-primary" href="#" id="button3">View Game</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fourth Item -->
+      <div class="carousel-item" style="height: 35rem;">
+        <img class="d-block w-100" id="image4" alt="First slide">
+        
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1 id="title4"></h1>
+            <br/>
+            <p><a class="btn btn-lg btn-primary" href="#" id="button4">View Game</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fifth Item -->
+      <div class="carousel-item" style="height: 35rem;">
+        <img class="d-block w-100" id="image5" alt="First slide">
+        <!-- </div> -->
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1 id="title5"></h1>
+            <br/>
+            <p><a class="btn btn-lg btn-primary" href="#" id="button5">View Game</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+   <br/>
+   <br/>
+  <!-- Team Favorites --> 
   <div class="row mb-2">
     <h3 class="pb-4 mb-4 fst-italic border-bottom">Team Favorites</h3>
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <!-- Danny's Game -->
           <strong class="d-inline-block mb-2 text-primary" id="teamMember1"></strong>
           <h3 class="mb-0" id="game1"></h3>
           <div class="mb-1 text-muted" id="platform1"></div>
-          <p class="card-text mb-auto" id="description1"></p>
-          <a href="#" class="stretched-link" id="">Continue reading</a>
+          <!-- <p class="card-text mb-auto" id="description1"></p> -->
+          <a href="#" class="stretched-link" id="">View Game</a>
 
         </div>
         <div class="col-auto d-none d-lg-block">
           <!-- GameImage -->
-          <svg class="bd-placeholder-img" width="200" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <svg class="bd-placeholder-img" width="200" height="190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#000"/>
-            <image href="https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg" height="200" width="200"  x="0%" y="20%"/>
+            <image href="https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg" height="200" width="200"  x="0%" y="0%"/>
             <!-- <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text> -->
           </svg>
 
@@ -119,17 +210,17 @@
           <strong class="d-inline-block mb-2 text-primary" id="teamMember2"></strong>
           <h3 class="mb-0" id="game2"></h3>
           <div class="mb-1 text-muted" id="platform2"></div>
-          <p class="card-text mb-auto" id="description2"></p>
-          <a href="#" class="stretched-link" id="">Continue reading</a>
+          <!-- <p class="card-text mb-auto" id="description2"></p> -->
+          <a href="#" class="stretched-link" id="">View Game</a>
 
         </div>
 
         <div class="col-auto d-none d-lg-block">
           <!-- Game Image -->
-          <svg class="bd-placeholder-img" width="200" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <svg class="bd-placeholder-img" width="200" height="190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#000"/>
-            <image href="https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg" height="200" width="200" x="0%" y="20%" />
+            <image href="https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg" height="200" width="200" x="0%" y="0%" />
             <!-- <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text> -->
           </svg>
 
