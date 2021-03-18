@@ -24,6 +24,17 @@ function buildNavBar(){
     document.getElementById("searchButton").onclick = redirectGameSearch;
 
     document.getElementById("userProfile").onclick = redirectUser;
+
+    if (sessionStorage.getItem("id") == null) {
+        document.getElementById("changeToLoginPage").onclick = goToLoginPage;
+    }
+    else {
+        document.getElementById("changeToLoginPage").id = "Logout";
+        document.getElementById("Logout").textContent = "Logout";
+        document.getElementById("Logout").onclick = logout;
+
+    }
+    
 }
 
 function buildGameBox(){
@@ -236,6 +247,7 @@ function redirectGameSearch(){
     window.location.href = gamePage;
 }
 
+<<<<<<< HEAD
 function countStars(count){
     userReviewCount =count;
 }
@@ -269,3 +281,49 @@ function appendStars(reviewStars, currentScore, starList){
     }
     return reviewStars;
 }
+=======
+function goToLoginPage() {
+    window.location.href = "login.html";
+}
+
+function logout() {
+    let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/logout'
+
+    logOutAsync(url).then(data=> {
+        responseFunction(data);
+    });
+}
+
+function responseFunction(data) {
+    if (data.status != 204) {
+        alert("Could not log out");
+    }
+    else {
+        sessionStorage.clear();
+        window.location.href = "home.html";
+
+    }
+}
+
+async function logOutAsync(url) {
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE
+            //   mode: 'cors',
+            //   cache: 'default',
+            //   credentials: 'same-origin',
+            // headers: {
+            //     'Content-Type' : 'application/json'
+            // },
+            //   redirect: 'follow',
+            //   referrerPolicy: 'no-referrer-when-downgrade',
+            //body: JSON.stringify(userData)        
+        });
+
+        return await response;
+    }catch(e) {
+        
+    }
+}
+>>>>>>> a3d7819a114c37fabe0f600872a539b45824cf12
