@@ -42,6 +42,12 @@ function buildNavBar(){
     
     document.getElementById("searchButton").onclick = redirectGameSearch;
 
+    document.getElementById("searchBox").addEventListener("keydown", (e)=>{
+        if(e.keyCode == 13){
+            redirectGameSearch();
+        }        
+    })
+
     document.getElementById("userProfile").onclick = redirectUser;
 }
 
