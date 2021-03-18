@@ -41,3 +41,13 @@ input:focus{
     position: relative;
     top: 8vh;
 }
+
+#goBackToLogin {
+    font-size: 2rem;
+    background: lightblue;
+    color: gray;
+    border-radius: 10px;
+    width: 50%;
+    position: relative;
+    top: 8vh;
+}

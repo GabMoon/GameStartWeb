@@ -1,4 +1,9 @@
 window.onload = () => {
+
+    if (sessionStorage.getItem("id") != null) {
+        window.location.href = "home.html";
+    }
+
     document.getElementById("formButton").addEventListener('click', verifyForm);
     document.getElementById("formButtonNewAccount").addEventListener('click', registerNewAccount);
 }
@@ -21,7 +26,7 @@ function verifyForm(){
 
 function submitForm(username, password) {
         let userLogin = {username : username.value, password : password.value};
-        let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/authentication';
+        let url = 'http://localhost:5000/users/authentication';
 
         authentication(url, userLogin).then(data=> {
             responseFunction(data);
@@ -42,6 +47,8 @@ function responseFunction(userData) {
             failedLogin.style.display = "none";
         }
 
+        sessionStorage.clear();
+
         sessionStorage.setItem("id", userData.id);
         sessionStorage.setItem("username", userData.username);
         sessionStorage.setItem("role", userData.role);
@@ -51,6 +58,10 @@ function responseFunction(userData) {
 }
 
 async function authentication(url, userData) {
+
+    if (sessionStorage.getItem("id") != null) {
+        window.location.href = "home.html";
+    }
     try {
         const response = await fetch(url, {
             method: 'POST', // *GET, POST, PUT, DELETE
@@ -69,6 +80,7 @@ async function authentication(url, userData) {
     }catch(e) {
         
     }
+    
 }
 
 function showPassword() {

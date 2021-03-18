@@ -49,6 +49,15 @@ function buildNavBar(){
     })
 
     document.getElementById("userProfile").onclick = redirectUser;
+    if (sessionStorage.getItem("id") == null) {
+        document.getElementById("changeToLoginPage").onclick = goToLoginPage;
+    }
+    else {
+        document.getElementById("changeToLoginPage").id = "Logout";
+        document.getElementById("Logout").textContent = "Logout";
+        document.getElementById("Logout").onclick = logout;
+
+    }
 }
 
 function buildTopTen(){
@@ -130,4 +139,50 @@ function redirectGame(){
     let gameName = this.name;
     let gamePage = "game.html?" + gameName;
     window.location.href = gamePage;
+}
+
+function goToLoginPage() {
+    window.location.href = "login.html";
+}
+
+function logout() {
+    let url = 'http://localhost:5000/users/logout'
+
+    logOutAsync(url).then(data=> {
+        responseFunction(data);
+    });
+}
+
+function responseFunction(data) {
+    if (data.status != 204) {
+        alert("Could not log out");
+    }
+    else {
+        sessionStorage.clear();
+        document.getElementById("Logout").id = "changeToLoginPage";
+        document.getElementById("changeToLoginPage").textContent = "Login";
+        document.getElementById("changeToLoginPage").onclick = goToLoginPage;
+    }
+}
+
+async function logOutAsync(url) {
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE
+            //   mode: 'cors',
+            //   cache: 'default',
+            //   credentials: 'same-origin',
+            // headers: {
+            //     'Content-Type' : 'application/json'
+            // },
+            //   redirect: 'follow',
+            //   referrerPolicy: 'no-referrer-when-downgrade',
+            //body: JSON.stringify(userData)        
+        });
+
+        return await response;
+    }catch(e) {
+        
+    }
 }
