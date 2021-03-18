@@ -1,5 +1,6 @@
 let Game = [];
 let Ratings = [];
+let userReviewCount = 0;
 
 window.onload = () => {
     buildNavBar();
@@ -13,6 +14,8 @@ window.onload = () => {
             buildRatings();
         })
         .catch(err => console.log(err));    
+
+    document.getElementById("SubmitReview").onclick= registerReview;
 }
 
 function buildNavBar(){
@@ -128,27 +131,70 @@ function buildRatings(){
 
                     let reviewStars = document.createElement('span');
                     reviewStars.setAttribute("class", "star-rating float-right");
-                    for (let j = 1; j < 6; j++){
-                        let star = document.createElement('a');
-                        star.setAttribute("href", "#");
 
-                        let starI = document.createElement("i");
+                    let star1 = document.createElement('span');
+                    let star2 = document.createElement('span');
+                    let star3 = document.createElement('span');
+                    let star4 = document.createElement('span');
+                    let star5 = document.createElement('span');
+                    
+                    //Adds Stars to all the Reviews for the game
+                    let starList = [star1,star2,star3,star4,star5];
+                    let currentScore = Ratings[i].score;
+                    appendStars(reviewStars, currentScore, starList);
 
-                        if (i <= Ratings[i].rating){
-                            starI.setAttribute("class", "fas fa-star checked fa-2x");
-                        }else if (Game.rating > i){
-                            starI.setAttribute("class", "fas fa-star-half-alt fa-2x");
-                        }else{
-                            starI.setAttribute("class", "fas fa-star fa-2x");
-                        }
-
-                        star.appendChild(starI);
-                        reviewStars.appendChild(star);
-                    } 
+                    // if(Ratings[i].score == 1){
+                    //     star1.setAttribute("class", "fa fa-star checked");
+                    //     reviewStars.appendChild(star1);
+                    // }
+                    // if(Ratings[i].score == 2){
+                    //     star1.setAttribute("class", "fa fa-star checked");
+                    //     star2.setAttribute("class", "fa fa-star checked");
+                    //     reviewStars.appendChild(star1);
+                    //     reviewStars.appendChild(star2);
+                    // }
+                    // if(Ratings[i].score == 3){
+                    //     star1.setAttribute("class", "fa fa-star checked");
+                    //     star2.setAttribute("class", "fa fa-star checked");
+                    //     star3.setAttribute("class", "fa fa-star checked");
+                    //     reviewStars.appendChild(star1);
+                    //     reviewStars.appendChild(star2);
+                    //     reviewStars.appendChild(star3);
+                    // }
+                    // if(Ratings[i].score == 4){
+                    //     star1.setAttribute("class", "fa fa-star checked");
+                    //     star2.setAttribute("class", "fa fa-star checked");
+                    //     star3.setAttribute("class", "fa fa-star checked");
+                    //     star4.setAttribute("class", "fa fa-star checked");
+                    //     reviewStars.appendChild(star1);
+                    //     reviewStars.appendChild(star2);
+                    //     reviewStars.appendChild(star3);
+                    //     reviewStars.appendChild(star4);
+                    // }
+                    // if(Ratings[i].score == 5){
+                    //     star1.setAttribute("class", "fa fa-star checked");
+                    //     star2.setAttribute("class", "fa fa-star checked");
+                    //     star3.setAttribute("class", "fa fa-star checked");
+                    //     star4.setAttribute("class", "fa fa-star checked");
+                    //     star5.setAttribute("class", "fa fa-star checked");
+                    //     reviewStars.appendChild(star1);
+                    //     reviewStars.appendChild(star2);
+                    //     reviewStars.appendChild(star3);
+                    //     reviewStars.appendChild(star4);
+                    //     reviewStars.appendChild(star5);
+                    // }
+                    // reviewStars.appendChild(star);
 
                     reviewHeader.appendChild(reviewStars);
+                    
+                    let breakline = document.createElement('br');
+                    let headusername = document.createElement('b');
+                    headusername.innerText = Ratings[i].user.username;
+                    reviewHeader.appendChild(breakline);
+                    reviewHeader.appendChild(headusername);
                     reviewDiv.appendChild(reviewHeader);
 
+                    //Review Comments 
                     let reviewBody = document.createElement('div');
                     reviewBody.setAttribute("class", "reviews-members-body");
 
@@ -161,6 +207,13 @@ function buildRatings(){
                     let revBox = document.getElementById("ReviewBox");
                     revBox.appendChild(reviewDiv);
                 }
+
+                //view the number of stars for all the reviews
+                // let count = 0;
+                //     for(let reviewstarts in Ratings){
+                //         count++;
+                //         console.log(String(count)+"   " +String(Ratings[reviewstarts].score));
+                //     }
 
             })
             .catch(err => {
@@ -181,4 +234,38 @@ function redirectGameSearch(){
     let searchGame = document.getElementById("searchBox").value;
     let gamePage = "game.html?" + searchGame;
     window.location.href = gamePage;
+}
+
+function countStars(count){
+    userReviewCount =count;
+}
+
+function registerReview(){
+    console.log(userReviewCount);
+
+    let commentArea = document.getElementById("CommentArea").value;
+    //let url = `http://localhost:5000/review/register/1/1/${userReviewCount}/${commentArea}`;
+    let url = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/review/register/${Game.id}/${userReviewCount}/${commentArea}`
+    fetch(url,{
+        method: "POST"
+       // headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
+}
+
+function appendStars(reviewStars, currentScore, starList){
+
+    // star1.setAttribute("class", "fa fa-star checked");
+    // reviewStars.appendChild(star1);
+
+    for (let i = 0;i< currentScore;i++){
+        starList[i].setAttribute("class", "fa fa-star checked");
+    }
+
+    for(let list in starList){
+        reviewStars.appendChild(starList[list]);
+    }
+    return reviewStars;
 }

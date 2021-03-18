@@ -198,27 +198,32 @@
               <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
                 <h5 class="mb-4">Leave a Review</h5>
                 <p class="mb-2">Rate the Game</p>
-                <div class="mb-4">
-                    <span class="star-rating">
-                            <a href="#"><i class="fas fa-star fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-star fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-star fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-star fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-star fa-2x"></i></a>
-                            </span>
-                </div>
+                <div class="container">
+                  <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+                      <input type="radio" id="userstar5" name="rating" value="5" onclick="countStars(5);"/><label for="userstar5" title="5 star">5</label>
+                      <input type="radio" id="userstar4" name="rating" value="4" onclick="countStars(4);"/><label for="userstar4" title="4 star">4</label>
+                      <input type="radio" id="userstar3" name="rating" value="3" onclick="countStars(3);"/><label for="userstar3" title="3 star">3</label>
+                      <input type="radio" id="userstar2" name="rating" value="2" onclick="countStars(2);"/><label for="userstar2" title="2 star">2</label>
+                      <input type="radio" id="userstar1" name="rating" value="1" onclick="countStars(1);"/><label for="userstar1" title="1 star">1</label>
+                  </div>
+            </div>	
                 <form>
                     <div class="form-group">
                         <label>Your Comment</label>
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control" id="CommentArea"></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
+                        <button class="btn btn-primary btn-sm" type="button" id= "SubmitReview"> Submit Comment </button>
                     </div>
                 </form>
               </div>
               <div id="ReviewBox" class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
-                  <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a>
+
+
+                <!-- Top rated button. Not Implemented -->
+                  <!-- <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a> -->
+
+
                   <h5 class="mb-1">All Ratings and Reviews</h5>
                   
                   <!-- REVIEW STENCIL, they are dynamically added by js -->
