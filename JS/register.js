@@ -1,5 +1,15 @@
 window.onload = () => {
+
+    if (sessionStorage.getItem("id") != null) {
+        window.location.href = "home.html";
+    }
+
     document.getElementById("formButton").addEventListener('click', verifyForm);
+    document.getElementById("goBackToLogin").addEventListener('click', goToLoginPage);
+}
+
+function goToLoginPage() {
+    window.location.href = "login.html";
 }
 
 function verifyForm(){
