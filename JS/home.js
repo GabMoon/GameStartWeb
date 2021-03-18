@@ -1,3 +1,5 @@
+let topTen= [];
+
 let DannysGame = {
     "id":928,
     "name":"Super Smash Bros. Ultimate",
@@ -20,20 +22,48 @@ let ElisGame = {
 };
 
 window.onload = () => {
-    // console.log(location.search.substring(1));
-    // let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/id/928';
+    let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/top10';
 
-    // let promise = fetch(url)
-    //        .then(response => response.json())
-    //         .then(json => {
-    //             Game = json;
-    //             buildDannysGame();
-    //             buildElisGame();
-    //         })
-    //         .catch(err => console.log(err));
+    let promise = fetch(url)
+           .then(response => response.json())
+            .then(json => {
+                topTen = json;
+                buildTopTen();
+            })
+            .catch(err => console.log(err));
     
+    buildNavBar();
     buildDannysGame();
     buildElisGame();
+}
+
+function buildNavBar(){
+    document.getElementById("logoImage").onclick = redirectHome;  
+    
+    document.getElementById("searchButton").onclick = redirectGameSearch;
+
+    document.getElementById("userProfile").onclick = redirectUser;
+}
+
+function buildTopTen(){
+    for (let i = 1; i < 6; i++){
+        let curElement = "image" + `${i}`;
+
+        let image = document.getElementById(curElement);
+        let imageAddress = topTen[i - 1].background_image;
+        console.log(topTen[i - 1].background_image);
+        image.setAttribute("src", imageAddress);
+
+        curElement = "title" + `${i}`;
+        let title = document.getElementById(curElement);
+        let titleText = document.createTextNode(topTen[i - 1].name);
+        title.appendChild(titleText);
+
+        curElement = "button" + `${i}`;
+        let button = document.getElementById(curElement);
+        button.setAttribute("name", topTen[i - 1].name);
+        button.onclick = redirectGame;
+    }
 }
 
 function buildDannysGame(){
@@ -51,9 +81,9 @@ function buildDannysGame(){
     if (platsText != null)
         platforms.appendChild(platsText);
 
-    let description = document.getElementById("description1");
-    let trimmedDesc = DannysGame.description.substring(0, 100) + " ...";
-    description.innerHTML = trimmedDesc;
+    // let description = document.getElementById("description1");
+    // let trimmedDesc = DannysGame.description.substring(0, 100) + " ...";
+    // description.innerHTML = trimmedDesc;
 }
 
 function buildElisGame(){
@@ -71,7 +101,27 @@ function buildElisGame(){
     if (platsText != null)
         platforms.appendChild(platsText);
 
-    let description = document.getElementById("description2");
-    let trimmedDesc = ElisGame.description.substring(0, 100) + " ...";
-    description.innerHTML = trimmedDesc;
+    // let description = document.getElementById("description2");
+    // let trimmedDesc = ElisGame.description.substring(0, 100) + " ...";
+    // description.innerHTML = trimmedDesc;
+}
+
+function redirectHome(){
+    window.location.href = "home.html"; 
+}
+
+function redirectGameSearch(){
+    let searchGame = document.getElementById("searchBox").value;
+    let gamePage = "game.html?" + searchGame;
+    window.location.href = gamePage;
+}
+
+function redirectUser(){
+    window.location.href = "user.html"; 
+}
+
+function redirectGame(){
+    let gameName = this.name;
+    let gamePage = "game.html?" + gameName;
+    window.location.href = gamePage;
 }
