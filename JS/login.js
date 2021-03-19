@@ -77,6 +77,7 @@ function responseFunction(userData) {
         sessionStorage.setItem("role", userData.role);
         sessionStorage.setItem("firstname", userData.firstname);
         sessionStorage.setItem("lastname", userData.lastname);
+        sessionStorage.setItem("email", userData.email);
         sessionStorage.setItem("email", userData.email); 
 
         window.location.href = "home.html";
