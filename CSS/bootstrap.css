@@ -2144,7 +2144,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-  color: #6c757d;
+  color: #000;
 }
 
 .form-control {
@@ -8581,6 +8581,11 @@ textarea.form-control-lg {
   .px-md-5 {
     padding-right: 3rem !important;
     padding-left: 3rem !important;
+  }
+
+  .px-md-max {
+    padding-right: 20rem !important;
+    padding-left: 20rem !important;
   }
 
   .py-md-0 {
