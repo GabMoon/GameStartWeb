@@ -3175,27 +3175,27 @@ textarea.form-control-lg {
 }
 
 .btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+  color: #fff;
+  border-color: #fff;
 }
 .btn-outline-secondary:hover {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #000;
+  background-color: #fff;
+  border-color: #fff;
 }
 .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
   box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
 }
 .btn-check:checked + .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #fff;
+  border-color: #fff;
 }
 .btn-check:checked + .btn-outline-secondary:focus, .btn-check:active + .btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
   box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
 }
 .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
-  color: #6c757d;
+  color: #fff;
   background-color: transparent;
 }
 
@@ -5894,6 +5894,12 @@ textarea.form-control-lg {
 	text-shadow: 0px 4px 4px #282828;
 }
 
+.image-caption{
+  font-size: 3rem;
+  -webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
+}
+
 .carousel-dark .carousel-control-prev-icon,
 .carousel-dark .carousel-control-next-icon {
   filter: invert(1) grayscale(100);
@@ -7308,6 +7314,13 @@ textarea.form-control-lg {
 
 .bg-heroImage2 {
   background-image: url("https://media.rawg.io/media/games/fd6/fd6a1eecd3ec0f875f1924f3656b7dd9.jpg") !important;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size:contain;
+}
+
+.bg-heroImage3 {
+  background-image: url("https://media.rawg.io/media/games/c73/c73c4ffebfe968ba0982a56c2b5020ef.jpg") !important;
   background-repeat: no-repeat;
   background-position-x: center;
   background-size:contain;
