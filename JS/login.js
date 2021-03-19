@@ -13,23 +13,22 @@ function buildNavBar(){
     
     document.getElementById("searchButton").onclick = redirectGameSearch;
 
-    document.getElementById("userProfile").onclick = redirectUser;
-
     document.getElementById("searchBox").addEventListener("keydown", (e)=>{
         if(e.keyCode == 13){
             redirectGameSearch();
         }        
     });
 
-    if (sessionStorage.getItem("id") == null) {
-        document.getElementById("changeToLoginPage").onclick = goToLoginPage;
-    }
-    else {
-        document.getElementById("changeToLoginPage").id = "Logout";
-        document.getElementById("Logout").textContent = "Logout";
-        document.getElementById("Logout").onclick = logout;
+    // if (sessionStorage.getItem("id") == null) {
+    //     document.getElementById("changeToLoginPage").onclick = goToLoginPage;
+    // }
+    // else {
+    //     alert("in button.set");
+    //     document.getElementById("changeToLoginPage").id = "Logout";
+    //     document.getElementById("Logout").textContent = "Logout";
+    //     document.getElementById("Logout").onclick = logout;
 
-    }
+    // }
 }
 
 function registerNewAccount() {
