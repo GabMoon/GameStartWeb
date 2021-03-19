@@ -51,6 +51,9 @@ function responseFunction(userData) {
         sessionStorage.setItem("id", userData.id);
         sessionStorage.setItem("username", userData.username);
         sessionStorage.setItem("role", userData.role);
+        sessionStorage.setItem("firstname", userData.firstname);
+        sessionStorage.setItem("lastname", userData.lastname);
+        sessionStorage.setItem("email", userData.email);
         console.log(sessionStorage);
         window.location.href = "home.html";
     }

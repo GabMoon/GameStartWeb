@@ -10913,3 +10913,25 @@ textarea.form-control-lg {
 .starrating > input:hover ~ label
 { color: orange ;  } /* Set yellow color when star hover */
 
+font.image-caption2{
+  font-size: 2rem;
+  -webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
+}
+
+.feature-card{
+  padding-left: 50px;
+  padding-right: 50px;
+  background: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 3px 1px #e0e0e0;
+  overflow: hidden;
+}
+
+.emptycard{
+  width: 18rem; 
+  display: none;
+}
+
+

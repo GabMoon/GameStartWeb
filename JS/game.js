@@ -15,6 +15,7 @@ window.onload = () => {
         })
         .catch(err => console.log(err));    
 
+    document.getElementById("addFavorite").onclick = addFavorite;
     document.getElementById("SubmitReview").onclick= registerReview;
 }
 
@@ -281,4 +282,19 @@ async function logOutAsync(url) {
     }catch(e) {
         
     }
+}
+
+function addFavorite(){
+    let userid = sessionStorage.getItem("id");
+
+    let url = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/favorite/${Game.id}/${userid}`
+    fetch(url,{
+        method: "POST"
+       // headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
+    let addFavoritebutton = document.getElementById("addFavorite");
+    addFavoritebutton.style.visibility="hidden";
 }
