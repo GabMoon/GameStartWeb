@@ -4,6 +4,11 @@ let userReviewCount = 0;
 
 window.onload = () => {
     buildNavBar();
+
+    //let url = 'http://localhost:5000/games/name/' + location.search.substring(1);
+
+    //let url = 'http://localhost:5000'
+    
     let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/name/' + location.search.substring(1);
 
     fetch(url)
@@ -15,6 +20,7 @@ window.onload = () => {
         })
         .catch(err => console.log(err));    
 
+    document.getElementById("addFavorite").onclick = addFavorite;
     document.getElementById("SubmitReview").onclick= registerReview;
 }
 
@@ -93,6 +99,7 @@ function fetchRatings(){
 }
 function buildRatings(){
     // Fetch reviews
+    //let reviewUrl = `http://localhost:5000/review/game/${Game.id}`;
     let reviewUrl = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/review/game/${Game.id}`;
     fetch(reviewUrl)
             .then(response=> response.json())
@@ -213,7 +220,7 @@ function registerReview(){
     console.log(userReviewCount);
 
     let commentArea = document.getElementById("CommentArea").value;
-    //let url = `http://localhost:5000/review/register/1/1/${userReviewCount}/${commentArea}`;
+   // let url = `http://localhost:5000/review/register/${Game.id}/${userReviewCount}/${commentArea}`;
     let url = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/review/register/${Game.id}/${userReviewCount}/${commentArea}`
     fetch(url,{
         method: "POST"
@@ -243,6 +250,7 @@ function goToLoginPage() {
 }
 
 function logout() {
+    //let url = 'http://localhost:5000/users/logout'
     let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/logout'
 
     logOutAsync(url).then(data=> {
@@ -281,4 +289,19 @@ async function logOutAsync(url) {
     }catch(e) {
         
     }
+}
+
+function addFavorite(){
+    let userid = sessionStorage.getItem("id");
+
+    let url = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/favorite/${Game.id}/${userid}`
+    fetch(url,{
+        method: "POST"
+       // headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
+    let addFavoritebutton = document.getElementById("addFavorite");
+    addFavoritebutton.style.visibility="hidden";
 }

@@ -2,6 +2,7 @@ let searchResults = [];
 
 window.onload = () => {
     buildNavBar();
+    //let url = 'http://localhost:5000/games/search' + location.search.substring(1);
     let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/search/' + location.search.substring(1);
 
     fetch(url)
@@ -106,7 +107,8 @@ function redirectUser(){
 
 function redirectGameSearch(){
     let searchGame = document.getElementById("searchBox").value;
-    let gamePage = "game.html?" + searchGame;
+    let gamePage = "search.html?" + searchGame;
+
     window.location.href = gamePage;
 }
 

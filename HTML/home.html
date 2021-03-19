@@ -43,7 +43,7 @@
   <body>
     <script src = '../JS/home.js'></script>
    
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
   <div class="container-fluid">
     <!-- GameStart logo -->
     <a class="navbar-brand" href="#"><img id="logoImage" class="w3-image w3-right" src="../images/mediumCroppedGameStart.jpg" width="214" height="48"></a>
@@ -179,64 +179,48 @@
    <br/>
    <br/>
   <!-- Team Favorites --> 
-  <div class="row mb-2">
+  <div id="favGamesBox" class="col-md-12 col-md-pull-3">
     <h3 class="pb-4 mb-4 fst-italic border-bottom">Team Favorites</h3>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-1 shadow-sm position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <!-- Danny's Game -->
-          <strong class="d-inline-block mb-2 text-primary" id="teamMember1"></strong>
-          <h3 class="mb-0" id="game1"></h3>
-          <div class="mb-1 text-muted" id="platform1"></div>
-          <!-- <p class="card-text mb-auto" id="description1"></p> -->
-          <a href="#" class="stretched-link" id="">View Game</a>
-
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <!-- GameImage -->
-          <svg class="bd-placeholder-img" width="200" height="190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#000"/>
-            <image href="https://media.rawg.io/media/games/9f3/9f3c513b301d8d7250a64dd7e73c62df.jpg" height="200" width="200"  x="0%" y="0%"/>
-            <!-- <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text> -->
-          </svg>
-
-        </div>
+    <!-- TEMPLATE!!  -->
+    <!-- <section class="border col-md-6 search-result-item shadow-sm flex-md-row mb-1">
+      <a class="image-link" href="#">
+        <img class="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+      </a>
+      <div class="search-result-item-body">
+          <div class="row">
+              <div class="col-sm-9">
+                  <h4 class="search-result-item-heading">
+                    <a href="#">john doe</a>
+                  </h4>
+                  <p class="description">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
+              </div>
+              <div class="col-sm-3 text-align-center">
+                        <p class="value3 mt-sm">$10, 300</p>
+                        <p class="fs-mini text-muted">PER WEEK</p>
+                        <a class="btn btn-primary btn-info btn-sm" href="#">Learn More</a>
+              </div>
+          </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <!-- Elis Game -->
-          <strong class="d-inline-block mb-2 text-primary" id="teamMember2"></strong>
-          <h3 class="mb-0" id="game2"></h3>
-          <div class="mb-1 text-muted" id="platform2"></div>
-          <!-- <p class="card-text mb-auto" id="description2"></p> -->
-          <a href="#" class="stretched-link" id="">View Game</a>
+    </section> -->
+  </div>
+  <div id="favGamesBox2" class="col-md-9 col-md-pull-3">
 
-        </div>
-
-        <div class="col-auto d-none d-lg-block">
-          <!-- Game Image -->
-          <svg class="bd-placeholder-img" width="200" height="190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#000"/>
-            <image href="https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg" height="200" width="200" x="0%" y="0%" />
-            <!-- <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text> -->
-          </svg>
-
-        </div>
-      </div>
-    </div>
   </div>
 
-
-
-
-</main><!-- /.container -->
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
+  </main><!-- /.container -->
+    
+  <footer class="mt-auto text-center text-white ">
+    <!-- Grid container -->
+    <div class="container p-4"></div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-2" style="background-color: #000000e6; color: #BFBFBF; font-size: 0.8rem">
+      © 2021 Copyright: GameStop Dev Team: Gabrielle Luna, Calvin Zheng, Tuan Mai, Daniel Skwarcha, Eli Corpron
+    </div>
+    <!-- Copyright -->
+</footer>  
+  
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
