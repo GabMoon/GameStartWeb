@@ -101,12 +101,9 @@ function buildUser(){
   email.innerText = sessionStorage.getItem("email");
 }
 function showFavorites(){
-
-  
   let userid = sessionStorage.getItem("id");
-  // let cardid = document.getElementById();
- // let reviewUrl = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/myFavorites/`;
   let favoriteUrl = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/myFavorite`;
+  
   fetch(favoriteUrl)
           .then(response=> response.json())
           .then(json => {
@@ -114,14 +111,6 @@ function showFavorites(){
               Favorites = json;
           })
           .then(()=> {
-              
-
-              // for(let i = 0; i < Favorites.length; i++){
-              //     let favoritediv = document.createElement('div');
-                  
-              //         console.log(String(1));
-              // }
-              // Fetch reviews
                   let count = 1;
                   
                   let TheGameButton = document.getElementById('TheGame');
