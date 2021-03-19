@@ -22,6 +22,7 @@ let ElisGame = {
 };
 
 window.onload = () => {
+    //let url = 'http://localhost:5000/games/top10'
     let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/top10';
 
     let promise = fetch(url)
@@ -146,6 +147,7 @@ function goToLoginPage() {
 }
 
 function logout() {
+    //let url = 'http://localhost:5000/users/logout'
     let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/logout'
 
     logOutAsync(url).then(data=> {

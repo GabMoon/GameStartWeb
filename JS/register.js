@@ -1,14 +1,30 @@
 window.onload = () => {
 
+    
     if (sessionStorage.getItem("id") != null) {
         window.location.href = "home.html";
     }
-
     document.getElementById("formButton").addEventListener('click', verifyForm);
-    document.getElementById("goBackToLogin").addEventListener('click', goToLoginPage);
+    document.getElementById("goBackToLoginAnything").addEventListener('click', goToLoginPage);
+    buildNavBar();
+
+
+}
+
+function buildNavBar(){
+    document.getElementById("logoImage").onclick = redirectHome;  
+    
+    document.getElementById("searchButton").onclick = redirectGameSearch;
+
+    document.getElementById("searchBox").addEventListener("keydown", (e)=>{
+        if(e.keyCode == 13){
+            redirectGameSearch();
+        }        
+    });
 }
 
 function goToLoginPage() {
+    console.log("I am in login");
     window.location.href = "login.html";
 }
 
@@ -149,9 +165,13 @@ function verifyForm(){
 
 function submitForm(firstname, lastname, username, password, email) {
         let userRegister = {firstName: firstname.value, lastName: lastname.value, username : username.value, password : password.value, email: email.value, role: 'Basic'};
+        console.log("I am here!!!");
+        console.log("The regsiter is " + userRegister);
+       // let url = 'http://localhost:5000/users/register'
         let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/register';
 
         register(url, userRegister).then(data=> {
+            console.log(data.response);
             responseFunction(data, username, password);
         });
 }
@@ -166,7 +186,8 @@ function responseFunction(responseData, username, password) {
         let failedLogin = document.getElementById("failedLogin");
         failedLogin.style.display = "none";
         let userLogin = {username : username.value, password : password.value};
-        let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/authentication';
+        let url = 'http://localhost:5000/users/authentication';
+        //let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/authentication';
         authentication(url, userLogin).then(userData=> {
             if (userData == undefined || userData == null) {
 
@@ -182,7 +203,9 @@ function responseFunction(responseData, username, password) {
                 sessionStorage.setItem("id", userData.id);
                 sessionStorage.setItem("username", userData.username);
                 sessionStorage.setItem("role", userData.role);
-                console.log(sessionStorage);
+                sessionStorage.setItem("firstname", userData.firstname);
+                sessionStorage.setItem("lastname", userData.lastname);
+                sessionStorage.setItem("email", userData.email); 
                 window.location.href = "home.html";
             }
         });
@@ -239,4 +262,18 @@ function showPassword() {
     } else {
         x.type = "password";
     }
+}
+
+function redirectHome(){
+    window.location.href = "home.html"; 
+}
+
+function redirectUser(){
+    window.location.href = "user.html"; 
+}
+
+function redirectGameSearch(){
+    let searchGame = document.getElementById("searchBox").value;
+    let gamePage = "search.html?" + searchGame;
+    window.location.href = gamePage;
 }

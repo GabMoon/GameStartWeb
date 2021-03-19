@@ -49,6 +49,7 @@ function verifyForm(){
 
 function submitForm(username, password) {
         let userLogin = {username : username.value, password : password.value};
+        //let url = 'http://localhost:5000/users/authentication';
         let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/authentication';
 
         authentication(url, userLogin).then(data=> {
@@ -74,7 +75,10 @@ function responseFunction(userData) {
         sessionStorage.setItem("id", userData.id);
         sessionStorage.setItem("username", userData.username);
         sessionStorage.setItem("role", userData.role);
-        console.log(sessionStorage);
+        sessionStorage.setItem("firstname", userData.firstname);
+        sessionStorage.setItem("lastname", userData.lastname);
+        sessionStorage.setItem("email", userData.email); 
+
         window.location.href = "home.html";
     }
 }
