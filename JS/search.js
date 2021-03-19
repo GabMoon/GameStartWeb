@@ -107,6 +107,7 @@ function redirectUser(){
 function redirectGameSearch(){
     let searchGame = document.getElementById("searchBox").value;
     let gamePage = "search.html?" + searchGame;
+
     window.location.href = gamePage;
 }
 
