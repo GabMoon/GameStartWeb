@@ -1,11 +1,35 @@
 window.onload = () => {
-
+    buildNavBar();
     if (sessionStorage.getItem("id") != null) {
         window.location.href = "home.html";
     }
 
     document.getElementById("formButton").addEventListener('click', verifyForm);
     document.getElementById("formButtonNewAccount").addEventListener('click', registerNewAccount);
+}
+
+function buildNavBar(){
+    document.getElementById("logoImage").onclick = redirectHome;  
+    
+    document.getElementById("searchButton").onclick = redirectGameSearch;
+
+    document.getElementById("userProfile").onclick = redirectUser;
+
+    document.getElementById("searchBox").addEventListener("keydown", (e)=>{
+        if(e.keyCode == 13){
+            redirectGameSearch();
+        }        
+    });
+
+    if (sessionStorage.getItem("id") == null) {
+        document.getElementById("changeToLoginPage").onclick = goToLoginPage;
+    }
+    else {
+        document.getElementById("changeToLoginPage").id = "Logout";
+        document.getElementById("Logout").textContent = "Logout";
+        document.getElementById("Logout").onclick = logout;
+
+    }
 }
 
 function registerNewAccount() {
@@ -89,4 +113,18 @@ function showPassword() {
     } else {
         x.type = "password";
     }
+}
+
+function redirectHome(){
+    window.location.href = "home.html"; 
+}
+
+function redirectUser(){
+    window.location.href = "user.html"; 
+}
+
+function redirectGameSearch(){
+    let searchGame = document.getElementById("searchBox").value;
+    let gamePage = "search.html?" + searchGame;
+    window.location.href = gamePage;
 }
