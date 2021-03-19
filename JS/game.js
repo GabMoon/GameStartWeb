@@ -286,9 +286,7 @@ async function logOutAsync(url) {
 }
 
 function addFavorite(){
-    let userid = sessionStorage.getItem("id");
-
-    let url = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/favorite/${Game.id}/${userid}`
+    let url = `http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/users/favorite/${Game.id}`
     fetch(url,{
         method: "POST"
        // headers: {"Content-type": "application/json; charset=UTF-8"}
