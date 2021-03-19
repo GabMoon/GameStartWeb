@@ -56,7 +56,7 @@ function buildTopTen(){
 
         curElement = "button" + `${i}`;
         let button = document.getElementById(curElement);
-        button.setAttribute("name", topTen[i - 1].name);
+        button.setAttribute("id", topTen[i - 1].name);
         button.onclick = redirectGame;
     }
 }
