@@ -2,6 +2,7 @@ let searchResults = [];
 
 window.onload = () => {
     buildNavBar();
+    //let url = 'http://localhost:5000/games/search' + location.search.substring(1);
     let url = 'http://project2eb-env.eba-yrqmmmkh.us-east-2.elasticbeanstalk.com/games/search/' + location.search.substring(1);
 
     fetch(url)
