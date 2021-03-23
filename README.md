@@ -63,17 +63,14 @@ To-do list:
 * Here is your review
 ![image](https://user-images.githubusercontent.com/77693248/112181222-9ee2f880-8bd2-11eb-94b7-a6ae6b0af592.png)
 
+* If you favorite that game, you can click on the icon at the top right to view your account and see your favorites.
 ![image](https://user-images.githubusercontent.com/77693248/112176636-a6a09e00-8bce-11eb-973c-f380af17c294.png)
 
+* You  can also search a game by one or more letters.
 ![image](https://user-images.githubusercontent.com/77693248/112177494-5b3abf80-8bcf-11eb-9a8b-733ccaa8cb10.png)
 
+* Five games will display based on your query.
 ![image](https://user-images.githubusercontent.com/77693248/112181627-faad8180-8bd2-11eb-9ab3-ed90106b0f93.png)
-
-
-
-
-
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
 
 ## Contributors
 
