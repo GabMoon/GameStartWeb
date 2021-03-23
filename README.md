@@ -49,14 +49,15 @@ To-do list:
 
 * Clicking on the Login button at the top right will bring you to the following screen:
 ![image](https://user-images.githubusercontent.com/77693248/112175822-f16de600-8bcd-11eb-8e2d-97c8a9f19179.png)
-
-* If you don't have an account, click on New Account button located at the bottom.
-![image](https://user-images.githubusercontent.com/77693248/112175941-0ba7c400-8bce-11eb-8801-b20926b66069.png)
+* Note: If you don't have an account, click on New Account button located at the bottom.
 
 * Inside the register page, you have to make an account that has a username and email that have not been used before.
-![image](https://user-images.githubusercontent.com/77693248/112176153-3d208f80-8bce-11eb-9fa9-c48d0cdb7164.png)
+![image](https://user-images.githubusercontent.com/77693248/112175941-0ba7c400-8bce-11eb-8801-b20926b66069.png)
 
 * After you register or login, you will be taken to the home page with the Login button changed to Logout.
+![image](https://user-images.githubusercontent.com/77693248/112176153-3d208f80-8bce-11eb-9fa9-c48d0cdb7164.png)
+
+* 
 ![image](https://user-images.githubusercontent.com/77693248/112176392-71944b80-8bce-11eb-83a3-660c049a2b03.png)
 
 *
