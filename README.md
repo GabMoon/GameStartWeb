@@ -57,10 +57,10 @@ To-do list:
 * After you register or login, you will be taken to the home page with the Login button changed to Logout.
 ![image](https://user-images.githubusercontent.com/77693248/112176153-3d208f80-8bce-11eb-9fa9-c48d0cdb7164.png)
 
-* 
+* You can view a game on that is one the home page and leave a review and rating
 ![image](https://user-images.githubusercontent.com/77693248/112176392-71944b80-8bce-11eb-83a3-660c049a2b03.png)
 
-*
+* Here is your review
 ![image](https://user-images.githubusercontent.com/77693248/112181222-9ee2f880-8bd2-11eb-94b7-a6ae6b0af592.png)
 
 ![image](https://user-images.githubusercontent.com/77693248/112176636-a6a09e00-8bce-11eb-973c-f380af17c294.png)
