@@ -44,6 +44,27 @@ To-do list:
 
 ## Usage
 
+![image](https://user-images.githubusercontent.com/77693248/112175652-cd120980-8bcd-11eb-9443-2152b6d19d63.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112175822-f16de600-8bcd-11eb-8e2d-97c8a9f19179.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112175941-0ba7c400-8bce-11eb-8801-b20926b66069.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112176153-3d208f80-8bce-11eb-9fa9-c48d0cdb7164.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112176392-71944b80-8bce-11eb-83a3-660c049a2b03.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112181222-9ee2f880-8bd2-11eb-94b7-a6ae6b0af592.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112176636-a6a09e00-8bce-11eb-973c-f380af17c294.png)
+
+![image](https://user-images.githubusercontent.com/77693248/112177494-5b3abf80-8bcf-11eb-9a8b-733ccaa8cb10.png)
+
+
+
+
+
+
 > Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
 
 ## Contributors
