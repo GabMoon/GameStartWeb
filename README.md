@@ -20,13 +20,14 @@ GameStartWeb is the front end portion of a web application that provides users w
 ## Features
 
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Login/Register feature with authentication
+* Displays the top 10 rated games
+* Displays a list of favorite games in the user's profile
+* Displays the reviews of other users
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* The ability to update/deleting reviews
+* Register as an admin
 
 ## Getting Started
 * NOTE: You will need to have the other part of this project already set up in order to hit the endpoints. Here is a link to the Java portion of this project with its own README file setup: https://github.com/GabMoon/GameStart   
