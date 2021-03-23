@@ -44,17 +44,22 @@ To-do list:
 - Images of what it should look like
 
 ## Usage
-
+* If you go to the /home HTML page, you will see the following:
 ![image](https://user-images.githubusercontent.com/77693248/112175652-cd120980-8bcd-11eb-9443-2152b6d19d63.png)
 
+* Clicking on the Login button at the top right will bring you to the following screen:
 ![image](https://user-images.githubusercontent.com/77693248/112175822-f16de600-8bcd-11eb-8e2d-97c8a9f19179.png)
 
+* If you don't have an account, click on New Account button located at the bottom.
 ![image](https://user-images.githubusercontent.com/77693248/112175941-0ba7c400-8bce-11eb-8801-b20926b66069.png)
 
+* Inside the register page, you have to make an account that has a username and email that have not been used before.
 ![image](https://user-images.githubusercontent.com/77693248/112176153-3d208f80-8bce-11eb-9fa9-c48d0cdb7164.png)
 
+* After you register or login, you will be taken to the home page with the Login button changed to Logout.
 ![image](https://user-images.githubusercontent.com/77693248/112176392-71944b80-8bce-11eb-83a3-660c049a2b03.png)
 
+*
 ![image](https://user-images.githubusercontent.com/77693248/112181222-9ee2f880-8bd2-11eb-94b7-a6ae6b0af592.png)
 
 ![image](https://user-images.githubusercontent.com/77693248/112176636-a6a09e00-8bce-11eb-973c-f380af17c294.png)
