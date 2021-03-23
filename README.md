@@ -1,8 +1,4 @@
 # GameStartWeb
-Front end for GameStart
-
-
-# GameStartWeb
 
 ## Project Description
 
